@@ -5,7 +5,7 @@
 Summary:	cifsd kernel server userspace utilities
 Name:		ksmbd-tools
 Version:	3.4.2
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://github.com/cifsd-team/ksmbd-tools/releases/download/%{version}/%{name}-%{version}.tgz
@@ -42,6 +42,8 @@ cifsd kernel server userspace utilities.
 %install
 rm -rf $RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/ksmbd
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -51,6 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS README smb.conf.example
+%dir %attr(700,root,root) %{_sysconfdir}/ksmbd
 %attr(755,root,root) %{_sbindir}/ksmbd.addshare
 %attr(755,root,root) %{_sbindir}/ksmbd.adduser
 %attr(755,root,root) %{_sbindir}/ksmbd.control

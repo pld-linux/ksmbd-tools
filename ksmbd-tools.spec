@@ -4,21 +4,22 @@
 
 Summary:	cifsd kernel server userspace utilities
 Name:		ksmbd-tools
-Version:	3.4.5
+Version:	3.4.6
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://github.com/cifsd-team/ksmbd-tools/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	30b0217afca5957131e4ed84168722ca
+# Source0-md5:	027a5afe3fad3ed30c9030f961ad3a27
 URL:		https://github.com/cifsd-team/ksmbd-tools
 BuildRequires:	autoconf >= 2.68
 BuildRequires:	automake
-BuildRequires:	glib2-devel
+BuildRequires:	glib2-devel >= 1:2.40
 %{?with_kerberos5:BuildRequires:	heimdal-devel}
 BuildRequires:	libnl-devel >= 3.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.671
+Requires:	glib2 >= 1:2.40
 Requires:	systemd-units >= 38
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,10 +68,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README smb.conf.example
+%doc AUTHORS README.md ksmbd.conf.example
 %dir %attr(700,root,root) %{_sysconfdir}/ksmbd
 %attr(755,root,root) %{_sbindir}/ksmbd.addshare
 %attr(755,root,root) %{_sbindir}/ksmbd.adduser
 %attr(755,root,root) %{_sbindir}/ksmbd.control
 %attr(755,root,root) %{_sbindir}/ksmbd.mountd
 %{systemdunitdir}/ksmbd.service
+%{_mandir}/man5/ksmbd.conf.5*
+%{_mandir}/man5/ksmbdpwd.db.5*
+%{_mandir}/man8/ksmbd.addshare.8*
+%{_mandir}/man8/ksmbd.adduser.8*
+%{_mandir}/man8/ksmbd.control.8*
+%{_mandir}/man8/ksmbd.mountd.8*

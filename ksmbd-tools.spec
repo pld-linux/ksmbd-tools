@@ -5,7 +5,7 @@
 Summary:	cifsd kernel server userspace utilities
 Name:		ksmbd-tools
 Version:	3.4.6
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://github.com/cifsd-team/ksmbd-tools/releases/download/%{version}/%{name}-%{version}.tar.gz
@@ -48,8 +48,6 @@ install -d $RPM_BUILD_ROOT{%{_sysconfdir}/ksmbd,%{systemdunitdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-sed -e 's#/sbin/ksmbd#%{_sbindir}/ksmbd#g' ksmbd.service > $RPM_BUILD_ROOT%{systemdunitdir}/ksmbd.service
 
 %clean
 rm -rf $RPM_BUILD_ROOT

@@ -37,7 +37,8 @@ cifsd kernel server userspace utilities.
 %{__automake}
 %configure \
 	%{__enable_disable kerberos5 krb5} \
-	--disable-silent-rules
+	--disable-silent-rules \
+	--with-systemdsystemunitdir="%{systemdunitdir}"
 
 %{__make}
 

@@ -4,12 +4,12 @@
 
 Summary:	cifsd kernel server userspace utilities
 Name:		ksmbd-tools
-Version:	3.4.8
+Version:	3.4.9
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://github.com/cifsd-team/ksmbd-tools/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	92b2c30a90b780ff3e2b9c8aa8a515b4
+# Source0-md5:	022634624a54b4b373c351bc18aa38ee
 URL:		https://github.com/cifsd-team/ksmbd-tools
 BuildRequires:	autoconf >= 2.68
 BuildRequires:	automake

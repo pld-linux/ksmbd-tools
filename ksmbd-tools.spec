@@ -5,22 +5,22 @@
 Summary:	cifsd kernel server userspace utilities
 Summary(pl.UTF-8):	Narzędzia przestrzeni użytkownika do serwera cifsd w jądrze
 Name:		ksmbd-tools
-Version:	3.4.9
+Version:	3.5.0
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://github.com/cifsd-team/ksmbd-tools/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	022634624a54b4b373c351bc18aa38ee
+# Source0-md5:	ff64e8503a54eb83a99aeb15ec32c24a
 URL:		https://github.com/cifsd-team/ksmbd-tools
 BuildRequires:	autoconf >= 2.68
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	glib2-devel >= 1:2.40
+BuildRequires:	glib2-devel >= 1:2.44
 %{?with_kerberos5:BuildRequires:	heimdal-devel}
 BuildRequires:	libnl-devel >= 3.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.671
-Requires:	glib2 >= 1:2.40
+Requires:	glib2 >= 1:2.44
 Requires:	systemd-units >= 38
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

@@ -16,7 +16,7 @@ BuildRequires:	autoconf >= 2.68
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	glib2-devel >= 1:2.44
 %{?with_kerberos5:BuildRequires:	heimdal-devel}
-BuildRequires:	libnl-devel >= 3.0
+BuildRequires:	libnl-devel >= 1:3.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.671

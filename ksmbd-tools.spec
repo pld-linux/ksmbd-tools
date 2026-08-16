@@ -5,12 +5,12 @@
 Summary:	cifsd kernel server userspace utilities
 Summary(pl.UTF-8):	Narzędzia przestrzeni użytkownika do serwera cifsd w jądrze
 Name:		ksmbd-tools
-Version:	3.5.6
+Version:	3.5.7
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://github.com/cifsd-team/ksmbd-tools/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	63d0567050a0e79fbd8458711b70ea40
+# Source0-md5:	b138bd001d5a85e93b0d887c3e4fe212
 URL:		https://github.com/cifsd-team/ksmbd-tools
 BuildRequires:	autoconf >= 2.68
 BuildRequires:	automake >= 1:1.11
@@ -73,7 +73,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS README.md ksmbd.conf.example
-%dir %attr(700,root,root) %{_sysconfdir}/ksmbd
+%dir %attr(750,root,root) %{_sysconfdir}/ksmbd
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ksmbd/ksmbd.conf
 %attr(755,root,root) %{_sbindir}/ksmbd.addshare
 %attr(755,root,root) %{_sbindir}/ksmbd.adduser
 %attr(755,root,root) %{_sbindir}/ksmbd.control
